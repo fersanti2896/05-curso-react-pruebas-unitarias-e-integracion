@@ -2,9 +2,11 @@
 
 exports[`Pruebas en componente <FirstApp /> Debe hacer match con el snapshot. 1`] = `
 <div>
-  <h1>
+  <h1
+    data-testid="test-title"
+  >
      
-    No hay ningún título
+    ¡Bienvenido al curso de React!
      
   </h1>
   <h2>

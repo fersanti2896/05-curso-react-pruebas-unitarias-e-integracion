@@ -2,21 +2,24 @@ import { render } from "@testing-library/react";
 import { FirstApp } from "../src/FirstApp";
 
 describe('Pruebas en componente <FirstApp />', () => {
-    test('Debe hacer match con el snapshot.', () => {
+    /*test('Debe hacer match con el snapshot.', () => {
         const { container } = render(<FirstApp />);
 
         expect( container ).toMatchSnapshot();
-    });
+    });*/
 
     test('Debe mostrar el título en un h1.', () => {
         const title = '¡Bienvenido al curso React!';
-        const { container, getByText } = render(<FirstApp title={title}/>);
+        const { container, getByText, getByTestId } = render(<FirstApp title={title}/>);
 
         expect( getByText(title) ).toBeTruthy();
+        expect( getByTestId('test-title').innerHTML ).toContain(title);
+    });
 
-        const h1 = container.querySelector('h1');
-        console.log(h1.innerHTML);
+    test('Debe de mostrar el subtítulo enviado por props.', () => {
+        const subTitle = 'Primeros pasos en Reat';
+        const { getByText, getByTestId } = render(<FirstApp subTitle={subTitle}/>);
 
-        expect(h1.innerHTML).toContain(title);
+        expect( getByText(subTitle) ).toBeTruthy();
     });
 });

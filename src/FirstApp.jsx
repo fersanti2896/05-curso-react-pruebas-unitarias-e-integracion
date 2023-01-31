@@ -14,7 +14,7 @@ const saludo = () => {
 export const FirstApp = ({ title, subTitle, name } ) => {
     return ( 
         <>
-            <h1> { title } </h1>
+            <h1 data-testid="test-title"> { title } </h1>
             <h2>{ subTitle }</h2>
             <h3>Mi nombre es: ¡{ name }!</h3>
 
